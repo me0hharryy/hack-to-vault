@@ -1,75 +1,114 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Parallax } from 'react-scroll-parallax';
+import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
+import LiquidChrome from '../Hero/LiquidChrome'; 
 import './AboutSection.css';
-
+import codeLogo from '../../assets/Code.png'
+import TrophyLogo from '../../assets/Trophy.png'
+import NetworkLogo from '../../assets/Network.png'
+import RocketLogo from '../../assets/Rocket.png'
 const AboutSection = () => {
   const features = [
     {
-      icon: "💻",
-      title: "48 Hours of Coding",
+      icon: codeLogo,
+      title: "24 Hours of Coding",
       description: "Non-stop development with mentors and resources"
     },
     {
-      icon: "🏆",
-      title: "$50,000 in Prizes",
-      description: "Amazing prizes for winners across multiple categories"
+      icon: TrophyLogo,
+      title: "₹45,000 in Prizes",
+      description: "Amazing prizes for winners across multiple categories "
     },
     {
-      icon: "🤝",
+      icon: NetworkLogo,
       title: "Network & Learn",
       description: "Connect with industry experts and fellow developers"
     },
     {
-      icon: "🚀",
+      icon: RocketLogo,
       title: "Launch Your Ideas",
       description: "Turn your innovative concepts into reality"
     }
   ];
 
+
+  const listContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2, 
+      },
+    },
+  };
+
+
+  const listItemVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   return (
-    <section id="about" className="about-section section-padding ">
-      <div className="container">
-        <Parallax speed={-10}>
-          <motion.div
-            className="about-header"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="section-title">Why HackFest 2025?</h2>
-            <p className="section-subtitle">
-              The ultimate hackathon experience that brings together the brightest minds
-              to solve real-world problems and build the future of technology.
-            </p>
-          </motion.div>
-        </Parallax>
+    <ParallaxProvider>
+      <section id="about" className="about-section"> 
+
         
-        <div className="features-grid">
-          {features.map((feature, index) => (
-            <Parallax key={index} speed={index % 2 === 0 ? -5 : 5}>
-              <motion.div
-                className="feature-card glass"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ 
-                  y: -10, 
-                  scale: 1.02,
-                  boxShadow: "0 20px 40px rgba(0, 255, 136, 0.2)"
-                }}
-                viewport={{ once: true }}
-              >
-                <div className="feature-icon">{feature.icon}</div>
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </motion.div>
-            </Parallax>
-          ))}
+        
+        <div className="container">
+          <div className="about-layout">
+
+            <motion.div 
+              className="about-left-column"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="section-title">About <br></br>Hack the Vault</h2>
+              <p className="section-subtitle">
+                The ultimate hackathon experience that brings together the brightest minds
+                to solve real-world problems and build the future of technology.
+              </p>
+            </motion.div>
+
+
+            <motion.div
+              className="about-right-column"
+              variants={listContainerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <ul className="features-list">
+                {features.map((feature, index) => (
+                  <motion.li key={index} variants={listItemVariants} className="feature-item">
+                    <div className="feature-icon">
+                      {(index === 0 || index === 1 || index === 2 || index === 3) ? (
+                        <img
+                          src={feature.icon}
+                          alt={feature.title}
+                          style={{
+                            width: '40px',
+                            height: '40px',
+                            filter: 'brightness(0) invert(1)'
+                          }}
+                        />
+                      ) : (
+                        feature.icon
+                      )}
+                    </div>
+                    <div className="feature-text">
+                      <h3>{feature.title}</h3>
+                      <p>{feature.description}</p>
+                    </div>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </ParallaxProvider>
   );
 };
 

@@ -1,1 +1,21 @@
 @import "tailwindcss";
+
+.fixed-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1; /* This is crucial - it places the background behind everything else */
+}
+
+/* Ensure the body has a fallback color and no margin */
+body {
+  margin: 0;
+  background-color: #000005;
+}
+
+/* Keep the scroll-snap behavior */
+html {
+  scroll-snap-type: y mandatory;
+}

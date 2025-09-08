@@ -1,0 +1,103 @@
+.domains-section {
+  background: transparent;
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-shadow: 
+    0 0 10px rgba(1, 1, 1, 0.5),
+    0 0 20px rgba(1, 1, 1, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.2);
+}
+
+.section-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* New Marquee Styles */
+.domains-marquee-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  /* Fades out the sides for a seamless look */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+.domains-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: inline-block;
+  will-change: transform; /* Performance optimization */
+}
+
+/* Animations - faster with a 20s duration */
+.marquee-content.forward {
+  animation: marquee-forward 20s linear infinite;
+}
+.marquee-content.reverse {
+  animation: marquee-reverse 20s linear infinite;
+}
+
+/* Pause animation on hover */
+.domains-marquee-container:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-forward {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0%); }
+}
+
+/* Style for individual items in the marquee */
+.domain-item {
+  display: inline-flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin: 0 1rem;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.domain-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.domain-item-icon {
+  margin-right: 0.75rem;
+  font-size: 1.5rem;
+}

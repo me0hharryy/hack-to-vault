@@ -8,71 +8,64 @@ const Timeline = () => {
     {
       time: "9:00 AM",
       day: "Day 1",
-      title: "Registration & Check-in",
-      description: "Get your swag bag and meet fellow participants",
+      title: "Registration & Breakfast",
+      description: "Fuel up, grab your swag, and get ready to code.",
       icon: "🎯"
     },
     {
-      time: "10:30 AM",
-      day: "Day 1", 
+      time: "10:00 AM",
+      day: "Day 1",
       title: "Opening Ceremony",
-      description: "Keynote speeches and hackathon kickoff",
+      description: "Inspiring keynotes and the official kickoff.",
       icon: "🚀"
     },
     {
-      time: "12:00 PM",
-      day: "Day 1",
-      title: "Team Formation",
-      description: "Find your team and start brainstorming",
-      icon: "🤝"
-    },
-    {
-      time: "1:00 PM",
+      time: "11:00 AM",
       day: "Day 1",
       title: "Hacking Begins!",
-      description: "Start building your amazing projects",
+      description: "Start building your amazing projects.",
       icon: "💻"
     },
     {
-      time: "7:00 PM",
+      time: "2:00 PM",
       day: "Day 1",
-      title: "Dinner & Networking",
-      description: "Fuel up and connect with mentors",
+      title: "Lunch & Mentor Connect",
+      description: "Refuel and get valuable insights from industry experts.",
       icon: "🍕"
     },
     {
-      time: "12:00 AM",
-      day: "Day 2",
-      title: "Midnight Snacks",
-      description: "Late night coding fuel provided",
+      time: "8:00 PM",
+      day: "Day 1",
+      title: "Dinner",
+      description: "Take a break and connect with fellow hackers.",
       icon: "🌙"
     },
     {
       time: "8:00 AM",
       day: "Day 2",
-      title: "Breakfast",
-      description: "Start your final day strong",
+      title: "Breakfast & Final Sprint",
+      description: "Grab some coffee and push for the finish line.",
       icon: "☀️"
     },
     {
-      time: "1:00 PM",
+      time: "11:00 AM",
       day: "Day 2",
       title: "Submission Deadline",
-      description: "Submit your projects and prepare demos",
+      description: "Submit your projects and prepare for your demo.",
       icon: "📤"
+    },
+    {
+      time: "11:30 AM",
+      day: "Day 2",
+      title: "Project Presentations",
+      description: "Show off your incredible creations to the judges.",
+      icon: "🎤"
     },
     {
       time: "2:00 PM",
       day: "Day 2",
-      title: "Project Presentations",
-      description: "Show off your incredible creations",
-      icon: "🎤"
-    },
-    {
-      time: "5:00 PM",
-      day: "Day 2",
-      title: "Awards Ceremony",
-      description: "Celebrate winners and amazing projects",
+      title: "Awards & Closing Ceremony",
+      description: "Celebrate the winners and an amazing 24 hours.",
       icon: "🏆"
     }
   ];
@@ -90,7 +83,7 @@ const Timeline = () => {
           >
             <h2 className="section-title">Event Schedule</h2>
             <p className="section-subtitle">
-              48 hours of non-stop innovation, learning, and building
+              24 hours of non-stop innovation, learning, and building
             </p>
           </motion.div>
         </Parallax>
