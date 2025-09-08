@@ -10,7 +10,7 @@ const HeroSection = () => {
       <div className="hero-parallax-content">
         <div className="hero-container">
           <div className="hero-content">
-            <div className="hero-date">SEPTEMBER 27-28, 2025</div>
+            <div className="hero-date">OCTOBER 27-28, 2025</div>
             <h1 className="hero-title">Hack the Vault</h1>
             <p className="hero-subtitle" >
               Unleash your creativity, solve real-world challenges, and innovate non-stop <br></br><div style={{display:'flex', justifyContent:'center'}}><img src={location} className='location'></img> CGC University, Mohali</div>

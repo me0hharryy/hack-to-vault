@@ -20,7 +20,7 @@ const Footer = () => {
           
 
           <div className="footer-pill links-pill">
-            <a href="#about">VentureVault 2.0</a>
+            <a href="https://venture.hharryy.com">VentureVault 2.0</a>
             <a href="mailto:venturenest@cgc.ac.in?subject=Hack%20the%20Vault%20Inquiry&body=Hello%2C%0A%0AI%20would%20like%20to%20know%20more%20about%20HackTheVault.">
   Contact
 </a>

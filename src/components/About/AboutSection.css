@@ -1,14 +1,14 @@
-
 .about-section {
   background: transparent;
   position: relative;
   overflow: hidden;
-  height: 100vh;
+  min-height: 100vh; /* Changed from height to min-height */
+  height: auto; /* Allow section to grow */
   display: flex;
   align-items: center;
-  scroll-snap-align: start; 
+  scroll-snap-align: start;
+  padding: 6rem 0; /* Added padding for spacing */
 }
-
 
 .about-section .canvas-background {
   position: absolute;
@@ -16,14 +16,16 @@
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 1; 
+  z-index: 1;
 }
 
 .container {
   position: relative;
-  z-index: 2; 
+  z-index: 2;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
 
 .about-layout {
   display: grid;
@@ -42,7 +44,7 @@
   margin-bottom: 1.5rem;
   color: #ffffff;
   line-height: 1.1;
-  text-shadow: 
+  text-shadow:
     0 0 10px rgba(1, 1, 1, 0.5),
     0 0 20px rgba(1, 1, 1, 0.3),
     0 0 40px rgba(255, 255, 255, 0.2);
@@ -53,7 +55,6 @@
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
 }
-
 
 .features-list {
   list-style: none;
@@ -69,13 +70,13 @@
   align-items: center;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.03); 
+  background: rgba(255, 255, 255, 0.03);
   border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 12px;
   transition: background 0.3s ease, transform 0.3s ease;
-  backdrop-filter: blur(20px); 
-  position: relative; 
-  z-index: 3; 
+  backdrop-filter: blur(20px);
+  position: relative;
+  z-index: 3;
 }
 
 .feature-item:hover {
@@ -87,6 +88,13 @@
   font-size: 2.5rem;
   color: #ffffff;
   flex-shrink: 0;
+}
+
+/* Styles for the feature icons moved from inline JSX */
+.feature-icon-img {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(1);
 }
 
 .feature-text h3 {
@@ -104,6 +112,10 @@
 
 /* Responsive design */
 @media (max-width: 992px) {
+  .about-section {
+    padding: 4rem 0; /* Adjust padding for tablets */
+  }
+
   .about-layout {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -118,9 +130,26 @@
 }
 
 @media (max-width: 576px) {
+  .about-section {
+    padding: 3rem 0; /* Adjust padding for mobile */
+  }
+
   .feature-item {
     flex-direction: column;
     text-align: center;
     gap: 1rem;
+    padding: 1.2rem;
+  }
+  
+  .feature-item:hover {
+    transform: translateY(-5px) translateX(0); /* Adjust hover effect for mobile */
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .feature-text h3 {
+    font-size: 1.1rem;
   }
 }

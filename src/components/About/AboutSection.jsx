@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Parallax, ParallaxProvider } from 'react-scroll-parallax';
-import LiquidChrome from '../Hero/LiquidChrome'; 
 import './AboutSection.css';
-import codeLogo from '../../assets/Code.png'
-import TrophyLogo from '../../assets/Trophy.png'
-import NetworkLogo from '../../assets/Network.png'
-import RocketLogo from '../../assets/Rocket.png'
+import codeLogo from '../../assets/Code.png';
+import TrophyLogo from '../../assets/Trophy.png';
+import NetworkLogo from '../../assets/Network.png';
+import RocketLogo from '../../assets/Rocket.png';
+
 const AboutSection = () => {
   const features = [
     {
@@ -17,7 +17,7 @@ const AboutSection = () => {
     {
       icon: TrophyLogo,
       title: "₹45,000 in Prizes",
-      description: "Amazing prizes for winners across multiple categories "
+      description: "Amazing prizes for winners across multiple categories"
     },
     {
       icon: NetworkLogo,
@@ -31,17 +31,15 @@ const AboutSection = () => {
     }
   ];
 
-
   const listContainerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, 
+        staggerChildren: 0.2,
       },
     },
   };
-
 
   const listItemVariants = {
     hidden: { opacity: 0, x: 50 },
@@ -50,27 +48,22 @@ const AboutSection = () => {
 
   return (
     <ParallaxProvider>
-      <section id="about" className="about-section"> 
-
-        
-        
+      <section id="about" className="about-section">
         <div className="container">
           <div className="about-layout">
-
-            <motion.div 
+            <motion.div
               className="about-left-column"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <h2 className="section-title">About <br></br>Hack the Vault</h2>
+              <h2 className="section-title">About <br />Hack the Vault</h2>
               <p className="section-subtitle">
                 The ultimate hackathon experience that brings together the brightest minds
                 to solve real-world problems and build the future of technology.
               </p>
             </motion.div>
-
 
             <motion.div
               className="about-right-column"
@@ -83,19 +76,11 @@ const AboutSection = () => {
                 {features.map((feature, index) => (
                   <motion.li key={index} variants={listItemVariants} className="feature-item">
                     <div className="feature-icon">
-                      {(index === 0 || index === 1 || index === 2 || index === 3) ? (
-                        <img
-                          src={feature.icon}
-                          alt={feature.title}
-                          style={{
-                            width: '40px',
-                            height: '40px',
-                            filter: 'brightness(0) invert(1)'
-                          }}
-                        />
-                      ) : (
-                        feature.icon
-                      )}
+                      <img
+                        src={feature.icon}
+                        alt={feature.title}
+                        className="feature-icon-img"
+                      />
                     </div>
                     <div className="feature-text">
                       <h3>{feature.title}</h3>
